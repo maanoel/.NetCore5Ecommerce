@@ -4,16 +4,16 @@ using System.Threading.Tasks;
 
 namespace CasaDoCodigoDois
 {
-  public class Relatorio
+  public class Relatorio : IRelatorio
   {
-    private readonly Catalogo Catalogo;
+    private readonly ICatalogo Catalogo;
 
-    public Relatorio(Catalogo catalogo)
+    public Relatorio(ICatalogo catalogo)
     {
       Catalogo = catalogo;
     }
 
-    public async Task Imprimir(HttpContext context ) 
+    public async Task Imprimir(HttpContext context)
     {
       foreach(var livro in Catalogo.ObterLivros())
       {
